@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css" integrity="sha512-HHsOC+h3najWR7OKiGZtfhFIEzg5VRIPde0kB0bG2QRidTQqf+sbfcxCTB16AcFB93xMjnBIKE29/MjdzXE+qw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="style.css">
+  <title>Day 1 || Sign Up Authentication</title>
+</head>
+<body>
+
+  <div class="grid-container">
+
+    <div class="side">
+      <header class="header">
+        <div class="tab">
+          <h4>Sign In</h4></div>
+        <div class="tab tab-light">
+          <h4>Sign Up</h4>
+        </div>
+      </header>
+      
+      <form method="post" class="input-form">
+  
+        <div class="input-group">
+        <input class="input-field" type="text" id="name" name="username" placeholder="Username"> 
+        <i class="fa-regular fa-user"></i>
+        </div>
+  
+        <div class="input-group">
+          <input class="input-field" type="password" id="password" name="password" placeholder="Password">
+          <i class="fa fa-lock"></i>
+        </div>
+  
+        <div class="input-options no-border">
+          <div>
+          <input type="checkbox" id="rememberme" name="rememberme">
+          <label for="checkbox">Remember me</label>
+          </div>
+          <a href="/passwordreset">Forgot password</a>
+        </div>
+        <button type="submit" class="btn btn-yellow">Log In</button>
+       
+        <div class="seperator">
+          <div class="line-break"></div>
+          <div class="seperator-text">or</div>
+          <div class="line-break"></div>
+        </div>
+    
+        <button class="btn btn-blue">
+          <i class="fa-brands fa-facebook-f"></i>
+          Log In with Facebook</button>
+      </form>
+      </div>
+
+      <div class="side">
+        <header class="header">
+          <div class="tab tab-light">
+            <h4>Sign In</h4></div>
+          <div class="tab">
+            <h4>Sign Up</h4>
+          </div>
+        </header>
+        
+        <form method="post" class="input-form">
+    
+          <div class="input-group">
+          <input class="input-field" type="text" id="name" name="username" placeholder="Username"> 
+          <i class="fa-regular fa-user"></i>
+          </div>
+    
+          <div class="input-group">
+            <input class="input-field" type="email" id="email" name="email" placeholder="Email">
+            <i class="fa-regular fa-envelope"></i>
+          </div>
+
+          <div class="input-group">
+            <input class="input-field" type="password" id="password" name="password" placeholder="Password">
+            <i class="fa fa-lock"></i>
+          </div>
+    
+          <div class="input-options gender no-border">
+            <div>
+            <input type="checkbox" id="male" name="male">
+            <label for="checkbox">Male</label>
+            </div>
+            <div>
+              <input type="checkbox" id="female" name="female">
+              <label for="checkbox">Female</label>
+              </div>
+           
+          </div>
+          <button type="submit" class="btn btn-yellow">Sign Up</button>
+         
+          <div class="seperator">
+            <div class="line-break"></div>
+            <div class="seperator-text">or</div>
+            <div class="line-break"></div>
+          </div>
+      
+          <button class="btn btn-blue">
+            <i class="fa-brands fa-facebook-f"></i>
+            Sign Up with Facebook</button>
+        </form>
+        </div>
+   
+
+      </div>
+
+</body>
+</html>
