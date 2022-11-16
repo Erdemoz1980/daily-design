@@ -25,19 +25,19 @@
       <form method="post" class="input-form">
   
         <div class="input-group">
-        <input class="input-field" type="text" id="name" name="username" placeholder="Username"> 
+        <input class="input-field" type="text" id="username" name="username" placeholder="Username"> 
         <i class="fa-regular fa-user"></i>
         </div>
   
         <div class="input-group">
-          <input class="input-field" type="password" id="password" name="password" placeholder="Password">
+          <input class="input-field" type="password" id="userpassword" name="password" placeholder="Password">
           <i class="fa fa-lock"></i>
         </div>
   
         <div class="input-options no-border">
           <div>
           <input type="checkbox" id="rememberme" name="rememberme">
-          <label for="checkbox">Remember me</label>
+          <label for="rememberme">Remember me</label>
           </div>
           <a href="/passwordreset">Forgot password</a>
         </div>
@@ -83,12 +83,12 @@
     
           <div class="input-options gender no-border">
             <div>
-            <input type="checkbox" id="male" name="male">
-            <label for="checkbox">Male</label>
+            <input type="checkbox" id="male" name="gender-check">
+            <label for="male">Male</label>
             </div>
             <div>
-              <input type="checkbox" id="female" name="female">
-              <label for="checkbox">Female</label>
+              <input type="checkbox" id="female" name="gender-check">
+              <label for="female">Female</label>
               </div>
            
           </div>
@@ -109,5 +109,10 @@
 
       </div>
 
+
+
+
+
+      <script src="./script.js"></script>
 </body>
 </html>
