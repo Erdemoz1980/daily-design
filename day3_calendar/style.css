@@ -12,7 +12,10 @@
   --clrToday:#bfdb38;
   --clrDays:#a89d8b;
   --clrTextCalendr:#c7c5c7;
-  --clrTextDetails:#fdebb9; 
+  --clrTextDetails:#e5ce8f; 
+  --clrHeading:#23343a;
+  --clrIconEdtDel:#644d52;
+  --clrDividingLine:#ea6461;
 }
 
 *{
@@ -29,6 +32,33 @@ body{
 h1{
   text-transform: uppercase;
   font-weight: 500;
+}
+
+button,
+input,
+form,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+
+.btn{
+  border:none;
+  padding:1rem 2rem;
+  color:#fff;
+  border-radius: 3px;
+  background: var(--clrBgDark);
+}
+
+.btn-lg{
+  padding:1rem 3rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:1rem;
+  font-weight:500;
 }
 
 .grid-container {
@@ -166,12 +196,60 @@ footer i {
 }
 
  .title {
+  text-align: center;
   background: var(--clrBgYellow);
-  color:#272e2d;
-  padding:2rem 0rem;
+  color:var(--clrHeading);
+  font-weight: 500;
+  padding:3rem 3.5rem;
 }
+
 
 .details{
-  color:#ffd4a9;
+  padding:1.5rem 1.5rem 0;
+  display:grid;
+  grid-template-columns: 1fr 4fr 2fr;
+  row-gap:3rem;
+  color:#fef9c3;
+  position: relative;
 }
 
+.item-icon{
+  justify-self:center;
+  align-self: center;
+}
+
+
+.details span {
+position: absolute;
+height:2px;
+width: 100%;
+background: black;
+top:25%;
+}
+
+.details span:nth-of-type(2){
+  top:50%;
+}
+
+.details span:nth-of-type(3){
+  top:75%;
+}
+
+.item-details p {
+  color:#644d52;
+  font-weight: 500;
+}
+
+.edit-del-btns{
+  justify-self: end;
+}
+
+.edit-del-btns button {
+  background: transparent;
+  border: none;
+
+}
+
+.edit-del-btns i {
+  color:#644d52;
+}
