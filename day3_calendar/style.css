@@ -6,6 +6,8 @@
 
   /*Colors*/
   --clrBgDark:#374140;
+  --clrBgModal:rgba(60, 83, 81,0.9);
+  --clrBgModalOpaque:rgb(22, 34, 33);
   --clrBgYellow:#febd7f;
   --clrBgDarkOrange:#ec7263;
   --clrEvent:#febe7e;
@@ -188,7 +190,7 @@ footer i {
 .events{
   margin-bottom: 4rem;
   align-self: center;
-  justify-self: left;
+  justify-self:left;
   height:720px;
   width: 500px;
   background:var(--clrBgDarkOrange);
@@ -223,7 +225,7 @@ footer i {
 position: absolute;
 height:2px;
 width: 100%;
-background: black;
+background: var(--clrDividingLine);
 top:25%;
 }
 
@@ -247,9 +249,94 @@ top:25%;
 .edit-del-btns button {
   background: transparent;
   border: none;
-
 }
 
 .edit-del-btns i {
   color:#644d52;
+}
+
+#add-event-btn{
+  margin:8rem auto 0;
+}
+
+/*Modal*/
+.modal-container {
+  position:fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top:0;
+  left:0;
+  z-index: 10;
+  height:100%;
+  width: 100%;
+  background-color: var(--clrBgModal);
+  transition: all 0.3s ease-in-out;
+
+}
+
+.modal-content{
+  height: 400px;
+  width: 500px;
+  background-color:var(--clrBgModalOpaque);
+  color:#fff; 
+  border-radius: 3px;
+  position: relative;
+
+}
+
+.btn-modal-close{
+  position: absolute;
+  right:0;
+  border:none;
+  height:25px;
+  width: 25px;
+  padding:2px 4px;
+  background-color: #b2bebd;
+  transition: all 0.15s ease;
+}
+
+.btn-modal-close:hover{
+  background: #000;
+  color:#fff;
+}
+
+.form-grid{
+  padding:2rem;
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:1rem;
+}
+
+.form-grid label {
+  align-self:center;
+  justify-self: start;
+  display: block;
+}
+
+.modal-input {
+border:none;
+justify-self: start;
+padding: 0.5rem;
+}
+
+textarea{
+  resize: none;
+  padding: 0.5rem;
+}
+
+.modal-content h1 {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.modal-btn{
+ display: block;
+ margin: 0 auto;
+ background-color: #304745;
+ transition:all 0.1s ease;
+}
+
+.modal-btn:hover{
+  background-color: var(--clrBgDark);
 }

@@ -101,21 +101,44 @@
             <i class="fa-solid fa-trash"></i>
           </button>
         </div> 
-   
-
-       <!--
-
-         <button id="add-btn" class="btn btn-lg">
-        <i class="fa-solid fa-plus fa-2x"></i>
-        
-        Add Event</button>
-       -->
-      
       </div>
-     
+      <button id="add-event-btn" class="btn btn-lg">
+        <i class="fa-solid fa-plus fa-2x"></i>
+        Add Event</button>
     </section>
 
   </main>
   
+<!--Modal-->
+<div id="modal-container" class="modal-container">
+
+  <form action="" class="modal-content">
+    <button id="btn-modal-close" class="btn-modal-close">x</button>
+    <h1>Add an Event</h1>
+
+    <div class="form-grid">
+       <label for="date">Select Date:
+       </label>
+       <input class="modal-input" type="text" name="date" id="date">
+       <label for="time">Time:
+       </label>
+       <input class="modal-input" type="text" name="time" id="time">
+       <label for="details">Details:
+       </label>
+       <textarea 
+       rows="4"
+       type="text" 
+       id="details" 
+       name="details"
+       >
+      </textarea>
+    </div>
+      
+       <button type="submit" class="btn modal-btn">Add to Calendar</button>
+  </form>
+</div>
+
+
+<script src="./script.js"></script>
 </body>
 </html>
