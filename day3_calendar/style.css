@@ -72,6 +72,7 @@ textarea {
 
 /*Left Side*/
 .calendar {
+  display: none;
   margin-bottom: 3rem;
   align-self: center;
   justify-self: right;
@@ -205,37 +206,37 @@ footer i {
   padding:3rem 3.5rem;
 }
 
-
-.details{
+.details-flex-container { 
   padding:1.5rem 1.5rem 0;
-  display:grid;
-  grid-template-columns: 1fr 4fr 2fr;
+  display:flex;
+  flex-direction: column;
   row-gap:3rem;
   color:#fef9c3;
   position: relative;
+  transition: all 0.3s ease;
 }
 
-.item-icon{
-  justify-self:center;
-  align-self: center;
+.details-flex-container:hover{
+  overflow-x: hidden;
+  overflow-y: overlay;
 }
 
-
-.details span {
-position: absolute;
-height:2px;
-width: 100%;
-background: var(--clrDividingLine);
-top:25%;
+.details-item{
+  display:grid;
+  grid-template-columns: 1fr 6fr 2fr;
+  position: relative;
 }
 
-.details span:nth-of-type(2){
-  top:50%;
+.details-item::after {
+  content:'';
+  position: absolute;
+  top:1em;
+  border-bottom: 2px solid cyan;
+  height: 100%;
+  width: 100%;
+
 }
 
-.details span:nth-of-type(3){
-  top:75%;
-}
 
 .item-details p {
   color:#644d52;
@@ -276,7 +277,7 @@ top:25%;
 }
 
 .modal-content{
-  height: 400px;
+  height: 500px;
   width: 500px;
   background-color:var(--clrBgModalOpaque);
   color:#fff; 
@@ -302,22 +303,47 @@ top:25%;
 }
 
 .form-grid{
-  padding:2rem;
+  margin:0 auto;
+  padding:1.5rem;
   display:grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 
+  'date-label date-input date-input'
+  'time-label time-input time-input'
+  'textarea-label textarea-input textarea-input'
+  '. modal-submit-btn modal-submit-btn';
   gap:1rem;
 }
 
-.form-grid label {
-  align-self:center;
-  justify-self: start;
-  display: block;
+.date-label{
+  grid-area: date-label;
 }
 
-.modal-input {
-border:none;
-justify-self: start;
-padding: 0.5rem;
+.date-input{
+  grid-area: date-input;
+}
+
+.time-label{
+  grid-area: time-label;
+}
+
+.time-input{
+  grid-area: time-input;
+}
+
+.textarea-label{
+  grid-area: textarea-label;
+}
+
+.textarea-input{
+  grid-area: textarea-input;
+}
+.modal-submit-btn{
+  grid-area: modal-submit-btn;
+}
+
+input {
+  padding:0.5rem;
 }
 
 textarea{
@@ -330,13 +356,13 @@ textarea{
   margin-top: 2rem;
 }
 
-.modal-btn{
- display: block;
- margin: 0 auto;
+.modal-submit-btn{
+margin-top: 1rem;
+ padding:2rem;
  background-color: #304745;
  transition:all 0.1s ease;
 }
 
-.modal-btn:hover{
+.modal-submit-btn:hover{
   background-color: var(--clrBgDark);
 }

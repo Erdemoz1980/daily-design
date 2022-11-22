@@ -44,9 +44,56 @@
     <section class="events">
         <h1 class="title">Events of the Month</h1>
         
-        <div class="details">
-        <i class="fa fa-utensils fa-2x item-icon"></i>
+        <div id="details-flex-container" class="details-flex-container">
+         
+          
+          <div class="details-item">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="details-text">
+              <h1 class="details-title">Test Title</h1>
+              <span class="details-date">Mon 21</span>
+              <span class="details-time">14:00</span>
+            </div>
+            <div class="edit-delete">
+              <button class="edit">Edit</button>
+              <button class="delete">Delete</button>
+            </div>
+          </div>
 
+          <div class="details-item">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="details-text">
+              <h1 class="details-title">This is a longer title</h1>
+              <span class="details-date">Mon 21</span>
+              <span class="details-time">14:00</span>
+            </div>
+            <div class="edit-delete">
+              <button class="edit">Edit</button>
+              <button class="delete">Delete</button>
+            </div>
+          </div>
+
+          <div class="details-item">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="details-text">
+              <h1 class="details-title">Some other length title maybe even longer that the long title</h1>
+              <span class="details-date">Mon 21</span>
+              <span class="details-time">14:00</span>
+            </div>
+            <div class="edit-delete">
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </div>
+          </div>
+
+         
+       
+
+         
+   
+
+          <!--
+        <i class="fa fa-utensils fa-2x item-icon"></i>
         <div class="item-details">
           <h1>Dinner with Dad</h1>
           <p>Wed 3 20:00</p>
@@ -60,12 +107,13 @@
           </button>
         </div>
 
-        <span class="divider"></span>
+        <div class="divider"></div>
 
         <i class="fa-brands fa-google-pay fa-2x item-icon"></i>
         <div class="item-details">
           <h1>Pay Phone Bills</h1>
           <p>Sat 13 12:00</p></div>
+
         <div class="edit-del-btns">
           <button>
             <i class="fa-solid fa-pencil"></i></button>
@@ -74,12 +122,13 @@
           </button>
         </div> 
 
-        <span class="divider"></span>
+        <div class="divider"></div>
   
         <i class="fa-regular fa-heart fa-2x item-icon"></i>
         <div class="item-details">
           <h1>Special Day</h1>
-          <p>Sun 14 16:00</p></div>
+          <p>Sun 14 16:00</p>
+        </div>
         <div class="edit-del-btns">
           <button>
             <i class="fa-solid fa-pencil"></i></button>
@@ -88,7 +137,8 @@
           </button>
         </div> 
 
-        <span class="divider"></span>
+        <div class="divider"></div>
+
  
         <i class="fa fa-person-chalkboard fa-2x item-icon"></i>
         <div class="item-details">
@@ -101,6 +151,9 @@
             <i class="fa-solid fa-trash"></i>
           </button>
         </div> 
+
+
+        -->
       </div>
       <button id="add-event-btn" class="btn btn-lg">
         <i class="fa-solid fa-plus fa-2x"></i>
@@ -117,24 +170,45 @@
     <h1>Add an Event</h1>
 
     <div class="form-grid">
-       <label for="date">Select Date:
+
+       <label class="date-label" for="date">Select Date:
        </label>
-       <input class="modal-input" type="text" name="date" id="date">
-       <label for="time">Time:
+       <input
+       type="date"  
+       class="date-input"  
+       name="date" 
+       id="date"
+       value="2022-11-20"
+       min="2022-11-20"
+       max="2024-11-20"
+       >
+       <label class="time-label" for="time">Time:
        </label>
-       <input class="modal-input" type="text" name="time" id="time">
-       <label for="details">Details:
+       <input 
+       class="time-input" 
+       type="time" 
+       name="time" 
+       id="time">
+       <label class="textarea-label" for="details">Details:
        </label>
        <textarea 
+       placeholder="Maximum 50 characters"
+       maxlength="50"
+       class="textarea-input"
        rows="4"
        type="text" 
        id="details" 
        name="details"
-       >
-      </textarea>
+       ></textarea>
+     
+      <button 
+      id="add-to-calendar"
+      type="submit" 
+      class="btn modal-submit-btn">Add to Calendar</button>
     </div>
+    
       
-       <button type="submit" class="btn modal-btn">Add to Calendar</button>
+      
   </form>
 </div>
 
