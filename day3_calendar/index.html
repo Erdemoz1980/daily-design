@@ -18,7 +18,7 @@
         <p>2015</p>
         <p>Feb. 2016</p><p>2017</p>
       </header>
-        <div class="weeks">
+        <div id='weeks'class="weeks">
             <p>Sun</p>
             <p>Mon</p>
             <p>Tue</p>
@@ -47,51 +47,26 @@
         <div id="details-flex-container" class="details-flex-container">
          
           
-          <div class="details-item">
+
+     <!--
+          <div id="details-item" class="details-item">
             <i class="fa-solid fa-magnifying-glass"></i>
             <div class="details-text">
-              <h1 class="details-title">Test Title</h1>
-              <span class="details-date">Mon 21</span>
-              <span class="details-time">14:00</span>
+              <h1 class="details-title">Hardcoded Item</h1>
+              <span class="details-date">Nov 22</span>
+              <span class="details-time">12:31pm</span>
             </div>
             <div class="edit-delete">
-              <button class="edit">Edit</button>
-              <button class="delete">Delete</button>
+              <button class="btn-sm edit">
+                <i class="fa-regular fa-pen-to-square"></i>
+              </button>
+              <button class="btn-sm delete">
+                <i class="fa-solid fa-trash"></i>
+              </button>
             </div>
           </div>
-
-          <div class="details-item">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <div class="details-text">
-              <h1 class="details-title">This is a longer title</h1>
-              <span class="details-date">Mon 21</span>
-              <span class="details-time">14:00</span>
-            </div>
-            <div class="edit-delete">
-              <button class="edit">Edit</button>
-              <button class="delete">Delete</button>
-            </div>
-          </div>
-
-          <div class="details-item">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <div class="details-text">
-              <h1 class="details-title">Some other length title maybe even longer that the long title</h1>
-              <span class="details-date">Mon 21</span>
-              <span class="details-time">14:00</span>
-            </div>
-            <div class="edit-delete">
-              <button class="edit-btn">Edit</button>
-              <button class="delete-btn">Delete</button>
-            </div>
-          </div>
-
-         
-       
-
-         
-   
-
+          -->
+      
           <!--
         <i class="fa fa-utensils fa-2x item-icon"></i>
         <div class="item-details">
@@ -174,6 +149,7 @@
        <label class="date-label" for="date">Select Date:
        </label>
        <input
+       required
        type="date"  
        class="date-input"  
        name="date" 
@@ -185,6 +161,7 @@
        <label class="time-label" for="time">Time:
        </label>
        <input 
+       required
        class="time-input" 
        type="time" 
        name="time" 
@@ -199,7 +176,7 @@
        type="text" 
        id="details" 
        name="details"
-       ></textarea>
+       required></textarea>
      
       <button 
       id="add-to-calendar"

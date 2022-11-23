@@ -29,6 +29,7 @@
 body{
   font-family: var(--ffMain);
   line-height: 1.2;
+  background-repeat: no;
 }
 
 h1{
@@ -51,6 +52,7 @@ textarea {
   color:#fff;
   border-radius: 3px;
   background: var(--clrBgDark);
+  cursor: pointer;
 }
 
 .btn-lg{
@@ -63,6 +65,11 @@ textarea {
   font-weight:500;
 }
 
+.btn-sm{
+  background: none;
+  border: none;
+}
+
 .grid-container {
   height: 100vh;
   width: 100vw;
@@ -72,7 +79,6 @@ textarea {
 
 /*Left Side*/
 .calendar {
-  display: none;
   margin-bottom: 3rem;
   align-self: center;
   justify-self: right;
@@ -207,19 +213,15 @@ footer i {
 }
 
 .details-flex-container { 
-  padding:1.5rem 1.5rem 0;
+  padding:1.5rem 1.5rem;
   display:flex;
   flex-direction: column;
+  max-height: 60%;
   row-gap:3rem;
   color:#fef9c3;
-  position: relative;
-  transition: all 0.3s ease;
+  overflow-y: auto;
 }
 
-.details-flex-container:hover{
-  overflow-x: hidden;
-  overflow-y: overlay;
-}
 
 .details-item{
   display:grid;
@@ -231,7 +233,7 @@ footer i {
   content:'';
   position: absolute;
   top:1em;
-  border-bottom: 2px solid cyan;
+  border-bottom: 2px solid var(--clrDividingLine);
   height: 100%;
   width: 100%;
 
@@ -243,21 +245,21 @@ footer i {
   font-weight: 500;
 }
 
-.edit-del-btns{
+.edit-delete {
+  display: flex;
+  justify-content: space-between;
   justify-self: end;
+  margin-right: 1rem;
+  width: 40px;
 }
 
-.edit-del-btns button {
-  background: transparent;
-  border: none;
-}
 
-.edit-del-btns i {
+.edit-delete i {
   color:#644d52;
 }
 
 #add-event-btn{
-  margin:8rem auto 0;
+  margin:2rem auto 2rem;
 }
 
 /*Modal*/
