@@ -68,6 +68,7 @@ textarea {
 .btn-sm{
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .grid-container {
@@ -79,6 +80,7 @@ textarea {
 
 /*Left Side*/
 .calendar {
+  display: none;
   margin-bottom: 3rem;
   align-self: center;
   justify-self: right;
@@ -135,6 +137,9 @@ textarea {
  text-align: center;
 }
 
+.id-container {
+  display: none;
+}
 .event::before, .today::before{
   content:'';
   position: absolute;
