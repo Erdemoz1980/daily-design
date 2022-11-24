@@ -70,26 +70,33 @@ function getItemsFromStorage() {
   return
 };
 
-//Delete an Event
-detailsContainer.addEventListener('click', editDelete);
-function editDelete(e) {
+//Delete or Edit an Event
+detailsContainer.addEventListener('click', editOrDelete);
+
+function editOrDelete(e) {
   const item = e.target
+  const btnGroup = item.parentElement;
+  const calendarEvent = btnGroup.parentElement;
+  const savedEvents = JSON.parse(localStorage.getItem('events'))
+  const eventId = calendarEvent.children[3].innerText
+
   //Delete Event
   if (item.classList[0] === 'del-btn') {
-    const btnGroup = item.parentElement;
-    const calendarEvent = btnGroup.parentElement;
-    const savedEvents = JSON.parse(localStorage.getItem('events'))
-    const eventId = calendarEvent.children[3].innerText
- 
-    //Delete item and update storage
     const updatedEvents = savedEvents.filter(event => event.id !== Number(eventId));
     localStorage.setItem('events', JSON.stringify(updatedEvents));
-
     //Remove from DOM
     calendarEvent.remove();
+  } else if (item.classList[0] === 'edit-btn') {
+    modalContainer.style.display = 'flex'
+    const currEvent = savedEvents.find(event => event.id === Number(eventId))
+    //Populate Modal with currEvent
+    detailsInput.value = currEvent.detailsTitle
+    timeInput.value = currEvent.detailsTime
+    dateInput.value = currEvent.detailsDate
+
   }
-  //Edit Event
-};
+}
+
 
 function saveToLocalStorage(event) {
   const events = localStorage.getItem('events') ?
