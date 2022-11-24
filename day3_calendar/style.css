@@ -10,6 +10,7 @@
   --clrBgModalOpaque:rgb(22, 34, 33);
   --clrBgYellow:#febd7f;
   --clrBgDarkOrange:#ec7263;
+  --clrBgDarkerOrange:#ec7263;
   --clrEvent:#febe7e;
   --clrToday:#bfdb38;
   --clrDays:#a89d8b;
@@ -63,6 +64,24 @@ textarea {
   justify-content: center;
   gap:1rem;
   font-weight:500;
+}
+
+.btn-md{
+  background-color: var(--clrBgDark);
+  padding:0.5rem 1rem;
+  font-size: 16px;
+  transition: background-color .15s ease;
+}
+
+.btn-md:hover{
+  background-color: #4c5f5d;
+}
+
+.btn-no{
+  background-color: #412329;
+}
+.btn.btn-no:hover{
+  background-color: #633740;
 }
 
 .btn-sm{
@@ -280,7 +299,6 @@ footer i {
   width: 100%;
   background-color: var(--clrBgModal);
   transition: all 0.3s ease-in-out;
-
 }
 
 .modal-content{
@@ -290,8 +308,24 @@ footer i {
   color:#fff; 
   border-radius: 3px;
   position: relative;
-
 }
+
+.modal-content-delete{
+  height:150px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--clrBgDarkerOrange);
+  border-radius: 5px;
+  color:var(--clrHeading);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+
 
 .btn-modal-close{
   position: absolute;
@@ -302,6 +336,12 @@ footer i {
   padding:2px 4px;
   background-color: #b2bebd;
   transition: all 0.15s ease;
+}
+
+.btn-container{
+  display: flex;
+  gap:1rem;
+  margin-top: 1rem;
 }
 
 .btn-modal-close:hover{
