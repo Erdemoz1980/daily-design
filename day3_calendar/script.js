@@ -15,7 +15,6 @@ timeInput.value = currTime
 
 document.addEventListener('DOMContentLoaded', getItemsFromStorage);
 
-
 function getItemsFromStorage() {
   const savedEvents = localStorage.getItem('events')
     && JSON.parse(localStorage.getItem('events'));
@@ -33,6 +32,7 @@ function getItemsFromStorage() {
       const delBtn = document.createElement('i');
       const idContainer = document.createElement('span');
 
+
      //Add Class names
      newDetailsItem.classList.add('details-item')
      newIcon.classList.add('fa-solid', 'fa-list');
@@ -43,15 +43,15 @@ function getItemsFromStorage() {
      editDeleteCtnr.classList.add('edit-delete')
      editBtn.classList.add('edit-btn','btn-sm', 'fa-solid', 'fa-pen-to-square');
      delBtn.classList.add('del-btn', 'btn-sm', 'fa-solid', 'fa-trash')
-     idContainer.classList.add('id-container') 
+     idContainer.className = 'id-container'
+
 
     //Add Content  
     detailsTitle.innerText = event.detailsTitle
     detailsDate.innerText = event.detailsDate
     detailsTime.innerText = event.detailsTime
-    const randomId = Date.now()
-    idContainer.innerText = randomId  
-    
+    idContainer.innerText = event.id
+  
     //Append Elements to DOM
     detailsTextCtnr.appendChild(detailsTitle)
     detailsTextCtnr.appendChild(detailsDate)
@@ -79,9 +79,14 @@ function editDelete(e) {
     const btnGroup = item.parentElement;
     const calendarEvent = btnGroup.parentElement;
     const savedEvents = JSON.parse(localStorage.getItem('events'))
-    console.log(calendarEvent)
+    const eventId = calendarEvent.children[3].innerText
+ 
+    //Delete item and update storage
+    const updatedEvents = savedEvents.filter(event => event.id !== Number(eventId));
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
 
-    //calendarEvent.remove();
+    //Remove from DOM
+    calendarEvent.remove();
   }
   //Edit Event
 };
@@ -104,8 +109,7 @@ function addCalendarEvent() {
  const editDeleteCtnr = document.createElement('div')
  const editBtn = document.createElement('i')
 const delBtn = document.createElement('i')
-const idContainer = document.createElement('span')
-
+const idContainer =document.createElement('span')
  //Add Class names
  newDetailsItem.classList.add('details-item')
  newIcon.classList.add('fa-solid', 'fa-list')
@@ -116,14 +120,13 @@ const idContainer = document.createElement('span')
  editDeleteCtnr.classList.add('edit-delete')
  editBtn.classList.add('edit-btn','btn-sm', 'fa-solid', 'fa-pen-to-square')
  delBtn.classList.add('del-btn', 'btn-sm', 'fa-solid', 'fa-trash')
-idContainer.classList.add('id-container') 
-
+idContainer.className = 'id-container'
   //Retrieve input values
  detailsTitle.innerText = detailsInput.value
  detailsDate.innerText = dateInput.value
- detailsTime.innerText = timeInput.value
- const randomId = Date.now()
- idContainer.innerText = randomId  
+detailsTime.innerText = timeInput.value
+idContainer.innerText = Date.now()  
+
    
   //Append Elements to DOM
   detailsTextCtnr.appendChild(detailsTitle)
@@ -141,7 +144,8 @@ idContainer.classList.add('id-container')
  saveToLocalStorage({
    detailsTitle: detailsInput.value,
    detailsDate: dateInput.value, 
-   detailsTime:timeInput.value
+   detailsTime: timeInput.value,
+   id:Date.now()
  });
 
 };
