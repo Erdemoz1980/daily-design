@@ -99,7 +99,6 @@ textarea {
 
 /*Left Side*/
 .calendar {
-  display: none;
   margin-bottom: 3rem;
   align-self: center;
   justify-self: right;
@@ -146,8 +145,8 @@ textarea {
   user-select: none;
 }
 
-.event, .today {
- box-shadow:0px 0px 0 14px var(--clrEvent);
+.event, .today  {
+ box-shadow:0px 0px 0 11px var(--clrEvent);
  border-radius: 50%;
  position: relative;
  color:var(--clrBgDark);
@@ -156,9 +155,7 @@ textarea {
  text-align: center;
 }
 
-.id-container {
-  display: none;
-}
+/*Inner Ring*/
 .event::before, .today::before{
   content:'';
   position: absolute;
@@ -166,27 +163,28 @@ textarea {
   left:50%;
   transform: translate(-50%,-50%);
   background: #272e2d;
-  height: 47px;
-  width: 47px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   z-index: -1;
 }
 
+/*Inner Ring*/
 .event::after, .today::after {
   content:'';
   position:absolute;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-  height:40px;
-  width: 40px;
+  height:35px;
+  width: 35px;
   border-radius: 50%;
   background: var(--clrEvent);
   z-index: -1;
 }
 
 .today {
-  box-shadow:0px 0px 0 14px var(--clrToday);
+  box-shadow:0px 0px 0 10px var(--clrToday);
 }
 
 .today::after{

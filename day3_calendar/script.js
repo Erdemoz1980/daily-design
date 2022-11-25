@@ -6,6 +6,8 @@ const confirmDelBtn = document.getElementById('confirm-delete')
 const declineDelBtn = document.getElementById('decline-delete')
 const addToCalendarBtn = document.getElementById('add-to-calendar')
 const detailsContainer = document.getElementById('details-flex-container')
+const daysContainer = document.getElementById('weeks').children
+
 //Inputs
 const dateInput = document.getElementById('date')
 const timeInput = document.getElementById('time')
@@ -15,14 +17,32 @@ const currTime = `${new Date().getHours()}:${new Date().getMinutes()}`
 timeInput.value = currTime
 
 //Check Localstorage on bootup and populate UI
-
 document.addEventListener('DOMContentLoaded', getItemsFromStorage)
+
+highlightToday();
+
+//Hightlight today on calendar
+function highlightToday() {
+const date = new Date()
+const today = date.getDate()
+
+  for (let i = 0; i < daysContainer.length; i++){
+    const p = daysContainer[i]
+    if (today < 10) {
+      const singleDigitToday = today.split('')[1]
+      p.innerText == singleDigitToday && p.classList.add('today')
+    } else {
+      p.innerText == today && p.classList.add('today')
+    }
+  }
+};
+
 
 function getItemsFromStorage() {
   const savedEvents = localStorage.getItem('events')
     && JSON.parse(localStorage.getItem('events'))
   if (savedEvents) {
-    savedEvents.map(event => {  
+    savedEvents.forEach(event => {  
       //Create the HTML Elements
       const newDetailsItem = document.createElement('div')
       const newIcon = document.createElement('i')
@@ -48,9 +68,20 @@ function getItemsFromStorage() {
     //Add Content  
     detailsTitle.innerText = event.detailsTitle
     detailsDate.innerText = event.detailsDate
-    detailsTime.innerText = event.detailsTime
+    detailsTime.innerText = event.detailsTime    
+     
+    //Hightlight event day on calendar  
+      const eventDay = event.detailsDate.split('-')[2]
+    for (let i = 0; i < daysContainer.length; i++){
+      const p = daysContainer[i]
+      if (eventDay < 10) {
+        const singleDigitDay = eventDay.split('')[1]
+        p.innerText === singleDigitDay && p.classList.add('event')
+      } else {
+         p.innerText === eventDay && p.classList.add('event')
+      }
+      };
 
-  
     //Append Elements to DOM
     detailsTextCtnr.appendChild(detailsTitle)
     detailsTextCtnr.appendChild(detailsDate)
@@ -65,7 +96,7 @@ function getItemsFromStorage() {
     detailsContainer.appendChild(newDetailsItem)
    })
   } 
-  return
+  
 };
 
 //Delete or Edit an Event
@@ -83,11 +114,25 @@ function editOrDelete(e) {
   //Delete || Edit Events
   if (item.classList[0] === 'del-btn') {
     deleteModalContainer.style.display = 'flex'
-    confirmDelBtn.onclick = ()=> {
+    confirmDelBtn.onclick = () => {
+      //Remove event from localstorage
       const updatedEvents = savedEvents.filter(event => event.id !== Number(eventId))
       localStorage.setItem('events', JSON.stringify(updatedEvents))
       //Remove from DOM
       calendarEvent.remove();
+      //Remove highlight from Calendar (DOM) in real time
+      const currentEvent = savedEvents.find(event => event.id === eventId);
+      const eventDay = currentEvent.detailsDate.split('-')[2]
+      for (let i = 0; i < daysContainer.length; i++){
+        const p = daysContainer[i]
+        if (eventDay < 10) {
+          const singleDigitDay = eventDay.split('')[1]
+          p.innerText === singleDigitDay && p.classList.remove('event')
+        } else {
+           p.innerText === eventDay && p.classList.remove('event')
+        }
+        };
+   
       deleteModalContainer.style.display = 'none'
     }
     declineDelBtn.onclick = () => {
@@ -138,11 +183,22 @@ const delBtn = document.createElement('i')
  editBtn.classList.add('edit-btn','btn-sm', 'fa-solid', 'fa-pen-to-square')
  delBtn.classList.add('del-btn', 'btn-sm', 'fa-solid', 'fa-trash')
 
-  //Retrieve input values
+  //Get input values
  detailsTitle.innerText = detailsInput.value
  detailsDate.innerText = dateInput.value
-detailsTime.innerText = timeInput.value
-
+ detailsTime.innerText = timeInput.value
+  
+  //Highlight on Calendar in real time
+  const eventDay = dateInput.value.split('-')[2]
+  for (let i = 0; i < daysContainer.length; i++){
+    const p = daysContainer[i]
+    if (eventDay < 10) {
+      const singleDigitDay = eventDay.split('')[1]
+      p.innerText === singleDigitDay && p.classList.add('event')
+    } else {
+       p.innerText === eventDay && p.classList.add('event')
+    }
+    };
 
   //Append Elements to DOM
   detailsTextCtnr.appendChild(detailsTitle)
