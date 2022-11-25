@@ -72,7 +72,7 @@ function getItemsFromStorage() {
 detailsContainer.addEventListener('click', editOrDelete)
 
 function editOrDelete(e) {
-  if (e.target.parentElement.className !== 'edit-delete') return;
+ if (e.target.parentElement.className !== 'edit-delete') return;
 
   const item = e.target
   const savedEvents = JSON.parse(localStorage.getItem('events'))
@@ -167,13 +167,15 @@ detailsTime.innerText = timeInput.value
 
 function updateEvent() {
   const eventId = addToCalendarBtn.classList[2]
-   //Update the DOM / UI!!!!!
-  const currEventsInDom = document.querySelectorAll('.details-item');
-  currEventsInDom.forEach(event => {
+   //Update the DOM / UI!
+  const currEventsInDOM = document.querySelectorAll('.details-item');
+  currEventsInDOM.forEach(event => {
     if (event.classList[1] == eventId) {
       event.children[1].children[0].innerText = detailsInput.value
       event.children[1].children[1].innerText = dateInput.value
       event.children[1].children[2].innerText = timeInput.value
+      //Remove id number from button
+      addToCalendarBtn.classList.remove(`${eventId}`);
     } else {
       return event
     }
